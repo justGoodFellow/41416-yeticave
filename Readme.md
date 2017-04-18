@@ -1,7 +1,7 @@
-# Личный проект «YetiCave» 
+# Личный проект «YetiCave»
 
 * Студент: [Сергей Боднарюк](https://up.htmlacademy.ru/php/1/user/41416).
-* Наставник: `Неизвестно`.
+* Наставник: [Олег Воронкович](https://up.htmlacademy.ru/php/1/user/416391).
 
 ---
 
