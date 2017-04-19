@@ -3,21 +3,18 @@
 date_default_timezone_set('Europe/Moscow');
 
 // записать в эту переменную оставшееся время в этом формате (ЧЧ:ММ)
-$lot_time_remaining = "00:00";
+$lot_time_remaining = '00:00';
 
 // временная метка для полночи следующего дня
 $tomorrow = strtotime('tomorrow midnight');
 
 // временная метка для настоящего времени
-$now = time();
+$now = strtotime('now');
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 
-$time_s = $tomorrow - $now;
-$time_h = floor($time_s / 3600);
-$time_m = round($time_s / 60);
+$lot_time_remaining = date('H:i', $tomorrow - $now);
 
-$lot_time_remaining = $time_h . ":" . $time_m;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
