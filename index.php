@@ -29,10 +29,10 @@ $user_avatar = 'img/user.jpg';
         <nav class="user-menu">
           <?php if ($is_auth): ?>
             <div class="user-menu__image">
-              <img src="<?php printf($user_avatar); ?>" width="40" height="40" alt="Пользователь">
+              <img src="<?php echo $user_avatar; ?>" width="40" height="40" alt="Пользователь">
             </div>
             <div class="user-menu__logged">
-              <p><?php printf($user_name); ?></p>
+              <p><?php echo htmlspecialchars($user_name); ?></p>
             </div>
           <?php else: ?>
             <ul class="user-menu__list">
