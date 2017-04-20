@@ -13,11 +13,7 @@ $now = time();
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 
-$time_s = $tomorrow - $now;
-$time_h = floor($time_s / 3600);
-$time_m = date('i', $time_s);
-
-$lot_time_remaining = $time_h . ':' . $time_m;
+$lot_time_remaining = gmdate('H:i', $tomorrow - $now);
 
 ?>
 <!DOCTYPE html>
