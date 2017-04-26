@@ -26,7 +26,6 @@ function humanTimeAgo(int $time)
     }
 
     return date('i минут назад', $difference);
-
 }
 
 ?>
