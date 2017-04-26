@@ -8,20 +8,27 @@ $bets = [
     ['name' => 'Семён', 'price' => 10000, 'ts' => strtotime('last week')]
 ];
 
-function humanTime($time)
+function humanTimeAgo(int $time): string
 {
-    $now = time();
-    $difference = $now - $time;
+    $difference = time() - $time;
     $hours = $difference / 3600;
 
-    if ($hours > 24) {
-        return date('d.m.Y в H:i', $time);
-    } else {
+    if ($difference >= 0) {
+        if ($hours > 24) {
+            return date('d.m.Y в H:i', $time);
+        }
+
+        if ($hours == 24) {
+            return '1 день назад';
+        }
+
         if ($hours >= 1) {
             return gmdate('g часов назад', $difference);
-        } else {
-            return date('i минут назад', $difference);
         }
+
+        return date('i минут назад', $difference);
+    } else {
+        return false;
     }
 }
 
@@ -133,7 +140,7 @@ function humanTime($time)
                         <tr class="history__item">
                             <td class="history__name"><?= $bet['name'] ?></td>
                             <td class="history__price"><?= $bet['price'] ?> р</td>
-                            <td class="history__time"><?= humanTime($bet['ts']) ?></td>
+                            <td class="history__time"><?= humanTimeAgo($bet['ts']) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </table>
