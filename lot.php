@@ -17,12 +17,16 @@ function humanTimeAgo(int $time)
     $difference = time() - $time;
     $hours = $difference / 3600;
 
+    if ($difference < 0) {
+        return false;
+    }
+
     if ($hours >= 24) {
         return date('d.m.Y в H:i', $time);
     }
 
     if ($hours >= 1) {
-        return gmdate('g часов назад', $difference);
+        return gmdate('H часов назад', $difference);
     }
 
     return date('i минут назад', $difference);
