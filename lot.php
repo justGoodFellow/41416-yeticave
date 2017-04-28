@@ -20,14 +20,14 @@ function humanTimeAgo(int $time)
         return false;
     }
 
-    $hours = $difference / 3600;
+    $hours = round($difference / 3600);
 
     if ($hours < 1) {
         return date('i минут назад', $difference);
     }
 
     if ($hours < 24) {
-        return floor($hours) . ' часов назад';
+        return $hours . ' часов назад';
     }
 
     return date('d.m.Y в H:i', $time);
