@@ -15,10 +15,13 @@ function humanTimeAgo(int $time)
     }
 
     $difference = time() - $time;
-    $hours = $difference / 3600;
-
     if ($difference < 0) {
         return false;
+    }
+
+    $hours = $difference / 3600;
+    if ($hours < 25 && $hours >= 24) {
+        return gmdate('i минут назад', $difference);
     }
 
     if ($hours >= 24) {
