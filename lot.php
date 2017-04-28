@@ -15,11 +15,13 @@ function humanTimeAgo(int $time)
     }
 
     $difference = time() - $time;
+
     if ($difference < 0) {
         return false;
     }
 
     $hours = $difference / 3600;
+
     if ($hours < 1) {
         return date('i минут назад', $difference);
     }
