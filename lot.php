@@ -20,19 +20,15 @@ function humanTimeAgo(int $time)
     }
 
     $hours = $difference / 3600;
-    if ($hours < 25 && $hours >= 24) {
-        return gmdate('День и i минут назад', $difference);
+    if ($hours < 1) {
+        return date('i минут назад', $difference);
     }
 
-    if ($hours >= 24) {
-        return date('d.m.Y в H:i', $time);
+    if ($hours < 24) {
+        return floor($hours) . ' часов назад';
     }
 
-    if ($hours >= 1) {
-        return gmdate('H часов назад', $difference);
-    }
-
-    return date('i минут назад', $difference);
+    return date('d.m.Y в H:i', $time);
 }
 
 ?>
