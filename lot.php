@@ -21,9 +21,14 @@ function humanTimeAgo(int $time)
     }
 
     $hours = round($difference / 3600);
+    $minutes = round(($difference % 3600) / 60);
 
     if ($hours < 1) {
-        return date('i минут назад', $difference);
+        if ($minutes == 0) {
+            return 'меньше минуты назад';
+        }
+
+        return $minutes . ' минут назад';
     }
 
     if ($hours < 24) {
