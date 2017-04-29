@@ -1,17 +1,15 @@
 <?php
 
-function includeTemplate($path, $data)
+function includeTemplate(string $path, array $data)
 {
     if (!file_exists($path)) {
-        return '';
+        trigger_error('Файла не существует');
     }
 
     ob_start();
 
-    $strip_data = strip_tags($data);
-    include "$path";
+    $strip_data = htmlentities($data);
+    include $path;
 
-    $template = ob_end_flush();
-
-    return $template;
+    return ob_end_flush();
 }
