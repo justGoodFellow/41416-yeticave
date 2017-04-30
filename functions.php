@@ -36,8 +36,6 @@ function includeTemplate(string $path, array $data = []): string
         trigger_error('Файла ' . $path . ' не существует');
     }
 
-    ob_start();
-
     array_walk_recursive($data, function (&$item) {
         $item = htmlspecialchars($item);
     });
@@ -45,6 +43,8 @@ function includeTemplate(string $path, array $data = []): string
     $__path = $path;
 
     extract($data);
+
+    ob_start();
 
     include $__path;
 
