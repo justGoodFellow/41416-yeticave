@@ -56,5 +56,29 @@ $lots = [
     ],
 ];
 
-require 'functions.php';
-require 'templates/main.php';
+require_once 'functions.php';
+
+?>
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link href="css/normalize.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+    <body>
+        <?php
+        echo includeTemplate('templates/header.php');
+
+        echo includeTemplate('templates/main.php', [
+            'lot_time_remaining' => $lot_time_remaining,
+            'categories' => $categories,
+            'lots' => $lots
+        ]);
+
+        echo includeTemplate('templates/footer.php');
+        ?>
+    </body>
+</html>

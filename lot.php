@@ -8,35 +8,27 @@ $bets = [
     ['name' => 'Семён', 'price' => 10000, 'ts' => strtotime('last week')]
 ];
 
-function humanTimeAgo(int $time)
-{
-    if ($time < 0) {
-        return false;
-    }
+require_once 'functions.php';
 
-    $difference = time() - $time;
+?>
 
-    if ($difference < 0) {
-        return false;
-    }
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>DC Ply Mens 2016/2017 Snowboard</title>
+        <link href="css/normalize.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <?php
+        echo includeTemplate('templates/header.php');
 
-    $hours = round($difference / 3600);
-    $minutes = round(($difference % 3600) / 60);
+        echo includeTemplate('templates/item.php', [
+            'bets' => $bets
+        ]);
 
-    if ($hours < 1) {
-        if ($minutes == 0) {
-            return 'меньше минуты назад';
-        }
-
-        return $minutes . ' минут назад';
-    }
-
-    if ($hours < 24) {
-        return $hours . ' часов назад';
-    }
-
-    return date('d.m.Y в H:i', $time);
-}
-
-require 'functions.php';
-require 'templates/item.php';
+        echo includeTemplate('templates/footer.php');
+        ?>
+    </body>
+</html>
