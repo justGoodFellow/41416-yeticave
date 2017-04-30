@@ -42,9 +42,11 @@ function includeTemplate(string $path, array $data = []): string
         $item = htmlspecialchars($item);
     });
 
+    $__path = $path;
+
     extract($data);
 
-    include $path;
+    include $__path;
 
     return ob_get_clean();
 }
