@@ -2,7 +2,9 @@
 
 /**
  * Форматирует прошедшую временную метку в удобный для чтения формат.
- * @param int $time Принимает временную метку ставки
+ *
+ * @param int $time Временная метка.
+ *
  * @return string|false Отформатированная дата или false, в случае ошибки.
  */
 function humanTimeAgo(int $time)
@@ -36,9 +38,12 @@ function humanTimeAgo(int $time)
 }
 
 /**
- * Передает путь к файлу, преобразует  и передает HTML код в HTML-сущности
- * @param string $path Принимает путь к файлу
- * @param array $data Принимает массив с данными
+ * Подключает шаблон
+ *
+ * @param string $path Путь к файлу
+ *
+ * @param array $data Массив с данными
+ *
  * @return string
  */
 function includeTemplate(string $path, array $data = []): string
