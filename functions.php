@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @param int $time
+ * @return bool|false|string
+ */
 function humanTimeAgo(int $time)
 {
     if ($time < 0) {
@@ -27,9 +31,14 @@ function humanTimeAgo(int $time)
         return $hours . ' часов назад';
     }
 
-    return date('d.m.Y в H:i', $time);
+    return date('d.m.y в H:i', $time);
 }
 
+/**
+ * @param string $path
+ * @param array $data
+ * @return string
+ */
 function includeTemplate(string $path, array $data = []): string
 {
     if (!file_exists($path)) {

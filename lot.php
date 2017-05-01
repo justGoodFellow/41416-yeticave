@@ -9,6 +9,19 @@ $bets = [
 ];
 
 require_once 'functions.php';
+require_once 'lots-arrays.php';
+
+$id = $_GET['id'];
+
+if (!array_key_exists($id, $lots)) {
+    header("HTTP/1.0 404 Not Found");
+
+    echo '404 - Страница не найдена';
+
+    exit;
+}
+
+$lot = $lots[$id];
 
 ?>
 
@@ -16,7 +29,7 @@ require_once 'functions.php';
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>DC Ply Mens 2016/2017 Snowboard</title>
+        <title><?= $lot['name'] ?></title>
         <link href="css/normalize.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -25,7 +38,8 @@ require_once 'functions.php';
         echo includeTemplate('templates/header.php');
 
         echo includeTemplate('templates/item.php', [
-            'bets' => $bets
+            'bets' => $bets,
+            'lot' => $lot
         ]);
 
         echo includeTemplate('templates/footer.php');
