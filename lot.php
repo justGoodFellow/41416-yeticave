@@ -11,14 +11,14 @@ $bets = [
 require_once 'functions.php';
 require_once 'lots-arrays.php';
 
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+};
 
 if (!array_key_exists($id, $lots)) {
     header("HTTP/1.0 404 Not Found");
 
-    echo '404 - Страница не найдена';
-
-    exit;
+    die('404 - Страница не найдена');
 }
 
 $lot = $lots[$id];
