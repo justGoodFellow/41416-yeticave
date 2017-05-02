@@ -41,7 +41,6 @@ function humanTimeAgo(int $time)
  * Подключает шаблон
  *
  * @param string $path Путь к файлу
- *
  * @param array $data Массив с данными
  *
  * @return string

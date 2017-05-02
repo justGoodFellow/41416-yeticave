@@ -12,8 +12,10 @@ require_once 'functions.php';
 require_once 'lots-arrays.php';
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-};
+    $id = (int) $_GET['id'];
+} else {
+    $id = null;
+}
 
 if (!array_key_exists($id, $lots)) {
     header("HTTP/1.0 404 Not Found");
